@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-sm-3 col-md-3">
+    <img src="/static/{{ doctor['photo'] }}" class="img-responsive" style="width:100%" alt="Image">
+  </div>
+  <div class="col-sm-3 col-md-3"> 
+    <label>Doctor's Name</label>
+    <p>{{ doctor['full_name'] }}</p>    
+  </div>
+  <div class="col-sm-3 col-md-3">
+    <label>Doctor's Speciality</label>
+     <p>{{ doctor['speciality'] }}</p>
+  </div>
+  <div class="col-sm-3 col-md-3">
+     <a href="/doctor/{{doctor['id']}}" class="btn btn-primary" type="button">Book Now</a>
+  </div>
+</div>
