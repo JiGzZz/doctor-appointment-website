@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Easy Doctor Appointment</title>
+  <title>Doctor Appointment</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -38,11 +38,8 @@
 
 {% include 'navigation.html' %}
   
-<div class="container text-center">    
-  <h3>Our Best Doctors</h3><br>
-  {% for doctor in doctors %}
-    {% include 'book_card.html' %}
-  {% endfor %}
+<div class="container text-center">
+  {% include 'application_form.html' %}
 </div><br>
 {% include 'footer.html' %}
 </body>

@@ -1,0 +1,90 @@
+<div class="custom_row" style="margin-top:15px;">
+  <h4>Application Form</h4>
+  <form action="/doctor/{{doctor['id']}}/book" method="post">
+    <div class="form-group row">
+      <label for="first_name" class="col-sm-3 col-form-label">First Name</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" name="first_name" placeholder="Bruce" required>
+      </div>
+    </div>
+      
+    <div class="form-group row">
+      <label for="last_name" class="col-sm-3 col-form-label">Last Name</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" name="last_name" placeholder="Wayne" required>
+      </div>
+    </div>
+
+    
+    <div class="form-group row">
+      <label for="age" class="col-sm-3 col-form-label">Age</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" name="age" placeholder="35" required>
+      </div>
+    </div>
+
+    
+    <div class="form-group row">
+      <label for="gender" class="col-sm-3 col-form-label">Gender</label>
+      <div class="col-sm-9">
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" id="customRadio1" name="gender" class="custom-control-input" value="Male" checked>
+          <label class="custom-control-label" for="customRadio1">Male</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" id="customRadio2" name="gender" class="custom-control-input" value="Female">
+          <label class="custom-control-label" for="customRadio2">Female</label>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="form-group row">
+      <label for="email" class="col-sm-3 col-form-label">Email</label>
+      <div class="col-sm-9">
+        <input type="email" class="form-control" name="email" placeholder="bruce@wayne.com" required>
+      </div>
+    </div>
+
+    
+    <div class="form-group row">
+      <label for="phone_number" class="col-sm-3 col-form-label">Phone Number</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" name="phone_number" placeholder="9999999999" required>
+      </div>
+    </div>
+
+    
+    <div class="form-group row">
+      <label for="app_date" class="col-sm-3 col-form-label">Preffered Appointment Date</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control datepicker" name="app_date" placeholder="01/03/2023" required>
+      </div>
+    </div>
+
+    
+    <div class="form-group row">
+      <label for="time_slot" class="col-sm-3 col-form-label">Time Slot</label>
+      <div class="col-sm-9">
+      <select name="time_slot" class="form-control" style="width:auto;">
+        <option value="10:00 - 10:30">10:00 - 10:30</option>
+        <option value="10:30 - 11:00">10:30 - 11:00</option>
+        <option value="06:00 - 06:30">06:00 - 06:30</option>
+        <option value="06:30 - 06:30">06:30 - 06:30</option>
+      </select>
+      </div>
+    </div>
+    <input class="btn btn-primary" type="submit">
+  </form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/theme.min.css" integrity="sha512-hbs/7O+vqWZS49DulqH1n2lVtu63t3c3MTAn0oYMINS5aT8eIAbJGDXgLt6IxDHcWyzVTgf9XyzZ9iWyVQ7mCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script>
+  $('.datepicker').datepicker({
+    changeMonth: true,
+    changeYear: true,
+    dateFormat: "dd/mm/yy",
+    minDate: 1
+});
+</script>

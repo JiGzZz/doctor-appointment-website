@@ -18,7 +18,7 @@ def get_doctors():
 
 
 @app.route("/doctor/<id>")
-def show_job(id):
+def show_doctor(id):
   doctor = load_doctor_from_db(id)
 
   if not doctor:

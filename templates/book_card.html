@@ -1,16 +1,16 @@
-<div class="row">
-  <div class="col-sm-3 col-md-3">
-    <img src="/static/{{ doctor['photo'] }}" class="img-responsive" style="width:100%" alt="Image">
+<div class="row custom_row">
+  <div class="col-sm-3 col-md-3" style="text-align: -webkit-center;">
+    <img src="/static/{{ doctor['photo'] }}" class="img-responsive custom_doctor_img" alt="Image">
   </div>
-  <div class="col-sm-3 col-md-3"> 
+  <div class="col-sm-3 col-md-3 custom_column_center"> 
     <label>Doctor's Name</label>
     <p>{{ doctor['full_name'] }}</p>    
   </div>
-  <div class="col-sm-3 col-md-3">
+  <div class="col-sm-3 col-md-3 custom_column_center">
     <label>Doctor's Speciality</label>
      <p>{{ doctor['speciality'] }}</p>
   </div>
-  <div class="col-sm-3 col-md-3">
+  <div class="col-sm-3 col-md-3 custom_column_center" style="align-content: end;">
      <a href="/doctor/{{doctor['id']}}" class="btn btn-primary" type="button">Book Now</a>
   </div>
 </div>

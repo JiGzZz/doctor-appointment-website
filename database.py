@@ -1,5 +1,7 @@
 from sqlalchemy import create_engine, text
+
 import os
+from datetime import datetime
 
 db_connection_string = os.environ['DB_CONNECTION_STRING']
 
@@ -12,10 +14,10 @@ engine = create_engine(db_connection_string,
 def load_doctors_from_db():
   with engine.connect() as conn:
     result = conn.execute(text("select * from doctors"))
-    jobs = []
+    doctors = []
     for row in result.all():
-      jobs.append(row._asdict())
-    return jobs
+      doctors.append(row._asdict())
+    return doctors
 
 
 def load_doctor_from_db(id):
@@ -28,19 +30,26 @@ def load_doctor_from_db(id):
       return rows[0]._asdict()
 
 
-def add_application_to_db(doctor_id, data):
+def add_application_to_db(id, data):
+  # print(id)
+  # sys.exit(0)
   with engine.connect() as conn:
     query = text(
-      "INSERT INTO applications (doctor_id, first_name, last_name, email, dob, gender, phone_number, appointment_date, time_slot) VALUES (:doctor_id, :first_name, :last_name, :email, :dob, :gender, :phone_number, :appointment_date, :time_slot)"
+      "INSERT INTO appointments (doctor_id, first_name, last_name, email, age, gender, phone_number, app_date, time_slot) VALUES (:doctor_id, :first_name, :last_name, :email, :age, :gender, :phone_number, :app_date, :time_slot)"
     )
 
-    conn.execute(query,
-                 doctor_id=doctor_id,
-                 first_name=data['first_name'],
-                 last_name=data['last_name'],
-                 email=data['email'],
-                 dob=data['dob'],
-                 gender=data['gender'],
-                 phone_number=data['phone_number'],
-                 appointment_date=data['appointment_date'],
-                 time_slot=data['time_slot'])
+    app_date = datetime.strptime(data['app_date'], '%d/%m/%Y')
+
+    conn.execute(
+      query, {
+        "doctor_id": id,
+        "first_name": data['first_name'],
+        "last_name": data['last_name'],
+        "email": data['email'],
+        "age": data['age'],
+        "gender": data['gender'],
+        "phone_number": data['phone_number'],
+        "app_date": app_date.strftime('%Y-%m-%d'),
+        "time_slot": data['time_slot']
+      })
+    # conn.execute(text(INSERT INTO applications (doctor_id, first_name, last_name, email, age, gender, phone_number, app_date, time_slot) VALUES ({id}, {data['first_name']}, {data['last_name']}, {data['email']}, {data['age']}, {data['gender']}, {data['phone_number']}, {data['app_date']}, {data['time_slot']}))
